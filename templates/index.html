@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil - PKI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">PKI</a>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="/generate">Générer CSR</a></li>
+      <li class="nav-item"><a class="nav-link" href="/csrs">Demandes CSR</a></li>
+      <li class="nav-item"><a class="nav-link" href="/certs">Certificats</a></li>
+      <li class="nav-item"><a class="nav-link" href="/verify">Vérification</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Infrastructure PKI - Projet Master MMSD</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="alert-container">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-primary">
+        <div class="card-body">
+          <h5 class="card-title">Générer une CSR</h5>
+          <p class="card-text">Créez une nouvelle clé privée et une demande de certificat.</p>
+          <a href="/generate" class="btn btn-primary">Générer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-warning">
+        <div class="card-body">
+          <h5 class="card-title">Demandes en attente</h5>
+          <p class="card-text">Voir et signer les CSRs en attente.</p>
+          <a href="/csrs" class="btn btn-warning text-white">Voir CSRs</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-success">
+        <div class="card-body">
+          <h5 class="card-title">Certificats émis</h5>
+          <p class="card-text">Liste des certificats signés ou révoqués.</p>
+          <a href="/certs" class="btn btn-success">Voir Certificats</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 border-info">
+        <div class="card-body">
+          <h5 class="card-title">Vérification</h5>
+          <p class="card-text">Vérifiez l'état et la validité d’un certificat.</p>
+          <a href="/verify" class="btn btn-info text-white">Vérifier</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 border-dark">
+        <div class="card-body">
+          <h5 class="card-title">Statistiques</h5>
+          <p class="card-text">Voir les statistiques globales de l'infrastructure PKI.</p>
+          <a href="/dashboard" class="btn btn-dark">Voir Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center mt-4">
+    <p class="text-muted">Projet PKI - Master MMSD | Date : {{ now.strftime('%d/%m/%Y %H:%M:%S') }}</p>
+  </footer>
+</div>
+
+</body>
+</html>

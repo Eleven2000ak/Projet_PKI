@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau de bord PKI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">PKI</a>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="/generate">Générer CSR</a></li>
+      <li class="nav-item"><a class="nav-link" href="/csrs">Demandes CSR</a></li>
+      <li class="nav-item"><a class="nav-link" href="/certs">Certificats</a></li>
+      <li class="nav-item"><a class="nav-link" href="/verify">Vérifier</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Statistiques générales de l'infrastructure PKI</h2>
+
+  <div class="row text-center">
+    <div class="col-md-3 mb-4">
+      <div class="card text-white bg-success shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Certificats signés</h5>
+          <p class="display-6">{{ certs_count }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card text-white bg-warning shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Demandes CSR</h5>
+          <p class="display-6">{{ csrs_count }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card text-white bg-danger shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Certificats révoqués</h5>
+          <p class="display-6">{{ revoked_count }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card text-white bg-info shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Certificats valides</h5>
+          <p class="display-6">{{ valid_count }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <canvas id="statsChart" height="100"></canvas>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="/" class="btn btn-secondary">Retour à l'accueil</a>
+  </div>
+</div>
+
+<script>
+  const ctx = document.getElementById('statsChart').getContext('2d');
+  const statsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Certificats signés', 'Demandes CSR', 'Révoqués', 'Valides'],
+      datasets: [{
+        label: 'Nombre',
+        data: [
+          {{ certs_count | tojson }},
+          {{ csrs_count | tojson }},
+          {{ revoked_count | tojson }},
+          {{ valid_count | tojson }}
+        ],
+        backgroundColor: [
+          'rgba(25, 135, 84, 0.7)',
+          'rgba(255, 193, 7, 0.7)',
+          'rgba(220, 53, 69, 0.7)',
+          'rgba(13, 202, 240, 0.7)'
+        ],
+        borderColor: [
+          'rgba(25, 135, 84, 1)',
+          'rgba(255, 193, 7, 1)',
+          'rgba(220, 53, 69, 1)',
+          'rgba(13, 202, 240, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            precision: 0
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
