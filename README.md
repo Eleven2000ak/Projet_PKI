@@ -9,7 +9,7 @@ Université : Université Abdelmalek Essaâdi – FST Tanger
 
 # 🔐 Projet PKI – Infrastructure à Clé Publique     
 
-Projet de Fin de Model – **Modélisation Mathématique et Science des Données (MMSD)**  
+Projet de Fin de Module – **Modélisation Mathématique et Science des Données (MMSD)**  
 Université Abdelmalek Essaâdi – FST Tanger  
 Année universitaire : 2024–2025
 
