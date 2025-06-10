@@ -1,7 +1,7 @@
 ## 👤 Réalisé par
-Étudiant : [Akhdim Abdesalam]
+Étudiant : Akhdim Abdesalam
 
-Encadrante : [Pr.LECHHAB OUADRASSI Nihad]
+Encadrante : Pr.LECHHAB OUADRASSI Nihad
 
 Master : MMSD – Modélisation Mathématique et Science des Données
 
