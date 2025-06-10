@@ -37,3 +37,33 @@ Il permet de générer, signer, révoquer et vérifier des certificats numériqu
 
 ## 📂 Structure du projet
 
+PKI_PROJET/
+├── app_cryptography.py # Code principal de l'application
+├── templates/ # Pages HTML (Jinja2)
+├── static/ # Fichier CSS et JS
+├── pki/
+│ ├── intermediateCA/ # Certificat + clé de la CA intermédiaire
+│ ├── final-certs/ # CSR, clés privées, certificats
+│ └── crl/ # Liste de révocation
+├── README.md # Ce fichier de documentation
+
+
+---
+
+## ▶️ Lancer le projet en local
+
+```bash
+# Étape 1 : Installer les dépendances
+pip install flask cryptography
+
+# Étape 2 : Exécuter l'application
+python app_cryptography.py
+
+👤 Réalisé par
+Étudiant : [Akhdim Abdesalam]
+
+Encadrante : [Pr.LECHHAB OUADRASSI Nihad]
+
+Master : MMSD – Modélisation Mathématique et Science des Données
+
+Université : Université Abdelmalek Essaâdi – FST Tanger
