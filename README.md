@@ -1,6 +1,15 @@
-# 🔐 Projet PKI – Infrastructure à Clé Publique
+## 👤 Réalisé par
+Étudiant : [Akhdim Abdesalam]
 
-Projet de Fin de Master – **Modélisation Mathématique et Science des Données (MMSD)**  
+Encadrante : [Pr.LECHHAB OUADRASSI Nihad]
+
+Master : MMSD – Modélisation Mathématique et Science des Données
+
+Université : Université Abdelmalek Essaâdi – FST Tanger
+
+# 🔐 Projet PKI – Infrastructure à Clé Publique     
+
+Projet de Fin de Model – **Modélisation Mathématique et Science des Données (MMSD)**  
 Université Abdelmalek Essaâdi – FST Tanger  
 Année universitaire : 2024–2025
 
@@ -59,11 +68,3 @@ pip install flask cryptography
 # Étape 2 : Exécuter l'application
 python app_cryptography.py
 ---
-## 👤 Réalisé par
-Étudiant : [Akhdim Abdesalam]
-
-Encadrante : [Pr.LECHHAB OUADRASSI Nihad]
-
-Master : MMSD – Modélisation Mathématique et Science des Données
-
-Université : Université Abdelmalek Essaâdi – FST Tanger
