@@ -59,7 +59,7 @@ pip install flask cryptography
 # Étape 2 : Exécuter l'application
 python app_cryptography.py
 
-👤 Réalisé par
+## 👤 Réalisé par
 Étudiant : [Akhdim Abdesalam]
 
 Encadrante : [Pr.LECHHAB OUADRASSI Nihad]
